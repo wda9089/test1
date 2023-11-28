@@ -1,0 +1,25 @@
+---
+- name: Infrastructure Deployment
+  hosts: localhost
+  collections:
+   - cloud.terraform
+
+  vars:
+    project_dir: /home/rhel/lab_exercises/2.Terraform_Ansible
+
+  tasks:
+
+   - name: Basic deploy of an instance
+     cloud.terraform.terraform:
+      project_path: '{{ project_dir }}'
+      state: present
+      force_init: true
+
+   - name: Remove Instance
+     cloud.terraform.terraform:
+      project_path: '{{ project_dir }}'
+      state: absent
+      force_init: true
+     tags:
+       - never
+       - remove
