@@ -5,7 +5,7 @@
    - cloud.terraform
 
   vars:
-    project_dir: /home/rhel/lab_exercises/2.Terraform_Ansible
+    project_dir: /test1/work1
 
   tasks:
 
